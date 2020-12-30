@@ -26,12 +26,23 @@ Atom make_float(float x)
 
 Atom make_char(const char *s)
 {
-  Atom p;
+  Atom p, a;
 
-  p.type = Atom::AtomType_Char;
-  p.value.c = strdup(s);
+  p = sym_table;
 
-  return p;
+  while(!nilp(p))
+  {
+    a = car(p);
+    if(strcmp(a.value.c, s) == 0)
+      return a;
+    p = cdr(p);
+  }
+
+  a.type = Atom::AtomType_Char;
+  a.value.c = strdup(s);
+  sym_table = cons(a, sym_table);
+
+  return a;
 }
 
 Atom make_string(const std::string s)

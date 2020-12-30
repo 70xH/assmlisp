@@ -33,6 +33,7 @@ struct Pair {
 #define nilp(atom) ((atom).type == Atom::AtomType_Nil)
 
 static const Atom nil = { Atom::AtomType_Nil };
+static Atom sym_table = { Atom::AtomType_Nil };
 
 Atom cons(Atom car_val, Atom cdr_val);
 
