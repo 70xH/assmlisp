@@ -37,12 +37,12 @@ Data define_char(const char *ele)
 }
 
 // define string
-Data define_string(std::string *ele)
+Data define_string(const std::string ele)
 {
   Data s;
 
   s.type = Data::DataType_String;
-  s.value.str = ele;
+  s.value.str = &ele;
 
   return s;
 }
@@ -69,7 +69,7 @@ void print(Data data)
 
     // if string
     case Data::DataType_String:
-      std::cout << data.value.str;
+      std::cout << *data.value.str;
       break;
 
     // if pair

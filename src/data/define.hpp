@@ -13,7 +13,7 @@ Data define_float(float ele);
 Data define_char(const char *ele);
 
 // define string
-Data define_string(std::string *ele);
+Data define_string(const std::string ele);
 
 // printing
 void print(Data data);

@@ -21,7 +21,7 @@ struct Data {
     int Int;
     float Float;
     const char *c;
-    std::string *str;
+    const std::string *str;
   } value;
 };
 
