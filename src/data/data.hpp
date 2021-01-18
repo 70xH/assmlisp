@@ -41,6 +41,9 @@ typedef struct Data Data;
 // define nil
 static const Data nil = { Data::DataType_Nil };
 
+// define a symbol table
+static Data symTab = nil;
+
 // a method to assigning the elements in a pair - data.cpp
 Data assignPairs(Data car_value, Data cdr_value);
 

@@ -2,6 +2,7 @@
 #include "data.hpp"
 #include <cstdlib>
 #include <iostream>
+#include <string.h>
 
 // define integer
 Data define_int(int ele)
@@ -28,10 +29,20 @@ Data define_float(float ele)
 // define character
 Data define_char(const char *ele)
 {
-  Data ch;
+  Data ch, sym;
+
+  sym = symTab;
+  while(!nilc(sym))
+  {
+    ch = car(sym);
+    if(strcmp(ch.value.c, ele) == 0)
+      return ch;
+    sym = cdr(sym);
+  }
 
   ch.type = Data::DataType_Char;
   ch.value.c = ele;
+  symTab = assignPairs(ch, sym);
 
   return ch;
 }
